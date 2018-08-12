@@ -7,29 +7,34 @@ import html.parser
 
 
 while(1):
-    url='http://mc.netease.com/forum.php?mod=forumdisplay&fid=91&filter=typeid&typeid=221&orderby=dateline'
+    
+    
+    ###未通过信息收集
+    
+    url='http://mc.netease.com/forum.php?mod=forumdisplay&fid=91&filter=typeid&typeid=221&orderby=dateline'   ##网页代码
+   
     print('页数为')
     page=int(input())+1
+    ##输入需要的页数
 
 
     lol=[]
-    zhongshiji=0
-    zhongshi=0
-    xiandai=0
-    geshi=0
-    www=0
-    a='昨天'
+    zhongshiji=0   ##中世纪
+    zhongshi=0     ##中式
+    xiandai=0      ##现代
+    geshi=0        ##格式错误
+    www=0          ##瞎写的变量，没有实际意义
         
 
-    for i in range(1,page):
-        url_t=url+'&page='+str(i)
-        html=urllib.request.urlopen(url_t)
-        soup=BeautifulSoup(html,'lxml')
+    for i in range(1,page):                         ##爬取网页分页的功能
+        url_t=url+'&page='+str(i)                   ##第几页
+        html=urllib.request.urlopen(url_t)        
+        soup=BeautifulSoup(html,'lxml')             
 
 
-        for link in soup.find_all( 'a','xst'):
+        for link in soup.find_all( 'a','xst'):      ##find 网页链接
             data=link.get('href')
-            lol.append(data)
+            lol.append(data)                        ##存入列表
 
         for whois in lol:
             http1='http:'+ whois
@@ -37,6 +42,8 @@ while(1):
             soup1=BeautifulSoup(html1,'lxml')
             soup1_find=soup1.find(text=['中式','东亚','中世纪','现代','特殊','现代/特殊'])
             soup_time=soup1.find_all( 'div',attrs={'class':'authi'})
+            
+            
             try:
                 soup_reTime=str(soup_time[1].contents[3].span.string)
 
