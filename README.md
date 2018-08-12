@@ -16,4 +16,5 @@ If later will have time to take out to write, to implement more features
 Crawl netease my world Chinese version of the BBS of information under the section, obtain the data I need and to statistics.
 
 
-以上均为机器翻译lol
+以上均为机器翻译
+Above all is machine translation. lol
