@@ -42,7 +42,9 @@ def find(url,data1):
 ##    
 
 
-#####实现从发帖格式上找出需要的字符串
+#####实现从发帖格式上找出需要的字符串 to find the information i need
+
+
 def time(http1):
     global data1,soup_ezTime
     html1=urllib.request.urlopen(http1)
@@ -66,7 +68,7 @@ def time(http1):
             soup_ezTime=soup_relTime[0:8]
             data1=datetime.datetime.strptime(soup_ezTime, '%Y-%m-%d')
     return data1
-######找时间
+######找时间  read time information
 
 
 def biaoti(url,data1) :
@@ -103,7 +105,8 @@ def biaoti(url,data1) :
     
 
 
-##实现从发帖标题上找出需要的字符串
+##实现从发帖标题上找出需要的字符串 find strings from the title of post
+
 def tupian(url):
     global soup_ezTime
     ##url="http://mc.netease.com/forum.php?mod=viewthread&tid=364044&extra=page%3D1%26filter%3Dtypeid%26typeid%3D221"
@@ -114,7 +117,8 @@ def tupian(url):
     urllib.request.urlretrieve(soup_png,'c:\\Users\\57111\\Desktop\\qwq\\%s.jpg'%(soup_ezTime))
 
 
-##找图片
+##找图片  download picture
+
 a=1
 zhongshiji=0
 zhongshi=0
@@ -128,9 +132,9 @@ while(1):
     timestart=datetime.datetime.strptime(str(input()), '%Y-%m-%d')
     
 
-    page=10           ####这里改页码
+    page=10           ####这里改页码  
 
-    lol=[]
+    lol=[]  # storage url
 
     
     x=0
